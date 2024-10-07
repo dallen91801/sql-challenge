@@ -14,15 +14,14 @@ SELECT first_name, last_name, hire_date FROM employees WHERE EXTRACT(YEAR FROM h
 17:43:23
 SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary FROM employees e JOIN salaries s ON e.emp_no = s.emp_no;
 17:42:35
-SELECT d.dept_no, 
-       d.dept_name, 
-       e.emp_no, 
-       e.last_name, 
-       e.first_name
-FROM employees e
-JOIN dept_emp de ON e.emp_no = de.emp_no
-JOIN departments d ON de.dept_no = d.dept_no;
+SELECT last_name, 
+       COUNT(*) AS name_count
+FROM employees
+GROUP BY last_name
+ORDER BY name_count DESC;
+
+
 
 
 Total rows: 0 of 0
-Ln 1, Col 1
+Ln 9, Col 1
